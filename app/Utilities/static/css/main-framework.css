@@ -1,0 +1,301 @@
+/*========================================*/
+ /*=====|-|  main-framework.css  |-|=======*/
+  /*========================================*/
+  /*=| Каркас сайта для пользователя      |=*/
+  /*=| old name - main-official.css       |=*/
+
+  /*========================*/
+ /* --=| MAIN CLASSES |=-- */
+/*========================*/
+
+/* | body | - Тег, который определяет стандарты в документе */
+body
+{
+    margin: 0;
+    color: white;
+    font-size: 20px;
+    font-family: Calibri;
+
+    background: linear-gradient(60deg, #515274 25%, blueviolet 50%, darkviolet 75%);
+    background-attachment: fixed;
+}
+
+/* | .container | - Главный класс, в котором находятся подблоки с содержимым страницы */
+.container
+{
+    /* => GRID */
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 100px 750px 70px;
+    grid-gap: 5px;
+    grid-template-areas:
+        "h h h h h h h h h h h h"
+        ". s s s m m m m m m m ."
+        ". f f f f f f f f f f .";
+}
+
+/* | .element | - Клас обозначения что этот элемент относится к разметке каркаса */
+.element
+{
+    color: white;
+    padding: 1vh 1vw 1vh 1vw;
+    border: 3px solid;
+    transition: 0.3s;
+}
+
+  /*==================*/
+ /* --=| HEADER |=-- */
+/*==================*/
+
+/* | Header | - верхушка сайта */
+header.element {
+    grid-area: h;
+
+    background: rgba(43, 40, 132, 0.5);
+    box-shadow: 0px 0px 10px #33004c;
+
+    /* => GRID */
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 80px;
+    grid-gap: 5px;
+    grid-template-areas:
+        ". log txt txt txt . . . . usr ext .";
+}
+
+/* | Home button logo main | - Переход на главную страницу сайта */
+.Home-btn-logo-m
+{
+    grid-area: log;
+}
+
+/* | Home button text main | - Переход на главную страницу сайта */
+.Home-btn-text-m
+{
+    grid-area: txt;
+}
+
+/* | Image logo main | - Главная logo картинка */
+.Img-logo-m
+{
+    width: 75px;
+    padding: 2.5px;
+    transition: 1s;
+    border-radius: 30px;
+}
+
+.Img-logo-m:hover
+{
+    box-shadow: 0 0 10px inset black;
+    transform: rotate(1440deg);
+}
+
+/* | Image text main | - Главная текстовая картинка */
+.Img-text-m
+{
+    height: 80px;
+    transition: 0.5s;
+}
+
+.Img-text-m:hover
+{
+    transform: scaleX(0.9);
+    filter: saturate(200%);
+}
+
+/* | User name main | - Имя пользователя в header */
+.User-name-m
+{
+    font-size: 30px;
+    font-family: ISOCPEUR;
+    font-style: italic;
+    letter-spacing: 3px;
+    grid-area: usr;
+    margin-top: 25px;
+}
+
+/* | Exit button main | - Кнопка для выхода из аккаунта */
+.Exit-btn-m
+{
+    grid-area: ext;
+}
+
+/* | Image icon main | - Изображение icon */
+.Img-icon-m
+{
+    width: 70px;
+    margin-top: 7px;
+    margin-left: 30px;
+    transition: 1s;
+}
+
+.Img-icon-m:hover
+{
+    width: 77px;
+    margin-top: 0;
+    transform: rotate(360deg);
+    filter: saturate(200%);
+}
+
+
+  /*===================*/
+ /* --=| SIDEBAR |=-- */
+/*===================*/
+
+
+/* | SECTION | - Боковая панель сайта */
+section.element
+{
+    grid-area: s;
+
+    background: rgba(99, 220, 57, 0.3);
+    transition: 0.5s;
+    font-size: 1.2em;
+
+    padding: 4vh 0 0 5vw;
+    vertical-align: middle;
+}
+
+/* | Image text section | - Ифно о пользователе */
+.Img-text-s
+{
+    width: 250px;
+}
+
+/* | Image small text section | - Данные */
+.Img-sm-text-s
+{
+    height: 50px;
+}
+
+/* || Событие наведения курсора мыши на элемент || */
+section.element:hover
+{
+    background: rgba(124, 0, 220, 0.3);
+    box-shadow: 0px 0px 10px 1px #3f0055;
+}
+
+
+  /*================*/
+ /* --=| MAIN |=-- */
+/*================*/
+
+
+/* | main | - Основное содержимое сайта */
+main.element
+{
+    grid-area: m;
+    padding: 0;
+    background: linear-gradient(135deg, rgba(16, 231, 143, 0.5) 0%, rgba(6, 38, 255, 0.5) 100%);
+}
+
+
+  /*==================*/
+ /* --=| FOOTER |=-- */
+/*==================*/
+
+
+/* | footer | погребок сайта, краткая информация */
+footer.element
+{
+    grid-area: f;
+
+    text-align: center;
+    font-size: 12px;
+    font-family: "BankGothic Lt BT";
+    line-height: 12px;
+    letter-spacing: 3px;
+    padding: 0;
+    margin-bottom: 10px;
+    background: linear-gradient(180deg, rgba(6, 139, 101, 0.8) 0%, rgba(73, 218, 46, 0.8) 100%);
+    transition: 0.5s;
+
+    /* => GRID */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 50px;
+    grid-template-areas:
+        "elc wtr gas";
+}
+
+/* | Utility Gas footer | - Телефон поставщика услуг Газ */
+.Utility-electricity
+{
+    grid-area: elc;
+}
+
+/* | Utility Electricity footer | - Телефон поставщика услуг Свет */
+.Utility-water
+{
+    grid-area: wtr;
+}
+
+/* | Utility Water footer | - Телефон поставщика услуг Вода */
+.Utility-gas
+{
+    grid-area: gas;
+}
+
+/* || Событие наведения курсора мыши на элемент || */
+footer.element:hover
+{
+    box-shadow: 0px 0px 10px 5px #69d000;
+    background: linear-gradient(180deg, rgba(6, 139, 101, 1) 40%, rgba(73, 218, 46, 1) 100%);
+}
+
+  /*======================*/
+ /* --=| BACKGROUND |=-- */
+/*======================*/
+
+header.element
+{
+    border-image: linear-gradient(20deg, #65e819 38%, #6861ff 65%);
+    border-image-slice: 1;
+}
+section.element {
+    border-image: linear-gradient(20deg, #e83406 38%, gold 65%);
+    border-image-slice: 1;
+}
+main.element {
+    border-image: linear-gradient(20deg, dodgerblue 38%, #9658db 65%);
+    border-image-slice: 1;
+}
+footer.element {
+    border-image: linear-gradient(20deg, lawngreen 38%, #009c53 65%);
+    border-image-slice: 1;
+}
+
+/*.element:hover*/
+/*{*/
+/*    border-image: none;*/
+/*    border: 3px solid darkorange;*/
+/*    border-radius: 100px;*/
+/*}*/
+
+
+  /*================*/
+ /* --=| TEMP |=-- */
+/*================*/
+
+header.element
+{
+    grid-template-areas:
+        ". log txt txt txt . sin sup usr par ext .";
+}
+
+.sign-in
+{
+    grid-area: sin;
+}
+
+.sign-up
+{
+    grid-area: sup;
+}
+
+.pers-area
+{
+    grid-area: par;
+}

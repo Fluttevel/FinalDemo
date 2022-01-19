@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <title>Главная страница</title>
+        <link rel="stylesheet" href="{% static 'css/main-framework.css' %}">
+        <link rel="stylesheet" href="{% static 'css/main-styles.css' %}">
+        <!-- Файл адаптивнойсть -->
+
+        <link rel="stylesheet" href="{% static 'css-unique/user-homepage.css' %}">
+    </head>
+    <body>
+        <div class="container">
+            <header class="element">
+                <a href="#" class="Home-btn-logo-m">
+                    <img src="{% static 'img/Logo-Img-Utilities.png' %}" class="Img-logo-m">
+                </a>
+                <a href="#" class="Home-btn-text-m">
+                    <img src="{% static 'img/Logo-Utilities.png' %}" class="Img-text-m">
+                </a>
+
+                <p class="User-name-m">Алексей</p>
+                <a href="{% static 'html/user-signin.html' %}" class="Exit-btn-m">
+                    <img src="{% static 'img/Exit.png' %}" class="Img-exit-m">
+                </a>
+            </header>
+
+            <section class="element">
+<!--                <p class="H-text-t1">Данные о пользователе</p>-->
+                <img src="{% static 'img/User-info.png' %}" class="Img-text-s">
+                <dl>
+                    <dt><img src="{% static 'img/Full-name-Img-sm.png' %}" class="Img-sm-text-s"></dt>
+                        <dd>
+                            Череповский Алексей Владимирович
+                        </dd>
+                    <dt><img src="{% static 'img/Login-Img-sm.png' %}" class="Img-sm-text-s"></dt>
+                        <dd>
+                            Ccoder
+                        </dd>
+                    <dt><img src="{% static 'img/City-Img-sm.png' %}" class="Img-sm-text-s"></dt>
+                        <dd>
+                            Луганская область
+                        </dd>
+                        <dd>
+                            Город Сватово
+                        </dd>
+                        <dd>
+                            Переулок Южный 3
+                        </dd>
+                    <dt><img src="{% static 'img/Contacts-Img-sm.png' %}" class="Img-sm-text-s"></dt>
+                        <dd>
+                            +380660391180
+                        </dd>
+                        <dd>
+                            ccoder.alex@gmail.com
+                        </dd>
+                </dl>
+            </section>
+
+            <main class="element">
+                {% for prov in providers %}
+                    <section class="util-provider provider-{{ prov.url }}">
+                        <div class="utility-info">
+                            <p>{{ prov.fullName }}</p>
+                            <p>{{ prov.address }}</p>
+                            <p>{{ prov.telContact }}</p>
+                            <a href="{{ prov.get_absolute_url }}" class="btn-a-green">
+                                Передать показания
+                            </a>
+                        </div>
+                        <div class="last-CR">
+                            <p>Последнее показание</p>
+                            <p>07/03/2020</p>
+                            <p>07574</p>
+                        </div>
+                        <div class="balance">
+                            <p>Состояние счета</p>
+                            <p>на 10/03/2020</p>
+                            <p>+175 гривен</p>
+                        </div>
+
+                        <div class="user-account">
+                            <p>Лицевой счет 102108</p>
+                        </div>
+                    </section>
+                {% endfor %}
+            </main>
+
+            <footer class="element">
+                {% for prov in providers %}
+                    <div class="Utility-{{ prov.url }}">
+                        <p>{{ prov.fullName }}</p>
+                        <p>{{ prov.telContact }}</p>
+                    </div>
+                {% endfor %}
+            </footer>
+        </div>
+    </body>
+</html>

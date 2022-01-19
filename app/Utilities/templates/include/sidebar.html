@@ -1,0 +1,34 @@
+{% load static %}
+
+<section class="element">
+<!--<p class="H-text-t1">Данные о пользователе</p>-->
+    <img src="{% static 'img/User-info.png' %}" class="Img-text-s">
+    <dl>
+        <dt><img src="{% static 'img/Full-name-Img-sm.png' %}" class="Img-sm-text-s"></dt>
+        <dd>
+            {{ user_data.sur_name }} {{ user_data.name }} {{ user_data.patronymic }}
+        </dd>
+        <dt><img src="{% static 'img/Login-Img-sm.png' %}" class="Img-sm-text-s"></dt>
+        <dd>
+            {{ user_data.login }}
+        </dd>
+        <dt><img src="{% static 'img/City-Img-sm.png' %}" class="Img-sm-text-s"></dt>
+        <dd>
+            {{ user_data.region }} область
+        </dd>
+        <dd>
+            Город {{ user_data.city }}
+        </dd>
+        <dd>
+            Улица {{ user_data.street }} {{ user_data.house }} {{ user_data.prefix_house }} {{ user_data.flat }}
+        </dd>
+        <dt><img src="{% static 'img/Contacts-Img-sm.png' %}" class="Img-sm-text-s"></dt>
+        <dd>
+            <p>{{ user_data.tel_number }}</p>
+            <p>{{ user_data.tel_number_extra }}</p>
+        </dd>
+        <dd>
+            {{ user_data.email }}
+        </dd>
+    </dl>
+</section>

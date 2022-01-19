@@ -1,0 +1,127 @@
+{% extends 'utilities/base.html' %}
+{% load static %}
+
+{% block title %}
+    Личный кабинет
+{% endblock title %}
+
+{% block cssfiles %}
+    <link rel="stylesheet" href="{% static 'css/main-framework.css' %}">
+    <link rel="stylesheet" href="{% static 'css-unique/user-personal-area.css' %}">
+{% endblock cssfiles %}
+
+
+{% block mcontent %}
+    <main class="element">
+        {% for field in form %}
+            {% for error in field.errors %}
+                <p>{{ field.name }} - {{ error }}</p>{# MODAL #}
+            {% endfor %}
+        {% endfor %}
+
+        {% if personal_user_data %}
+            <h2 class="H-text-t2">Личная информация</h2>
+            <h3 class="H-text-t3 text-subheader">Основная информация, которую вы используете на сайте Utilities</h3>
+            <a href="{% url 'page_pa_services' user_data.id_user %}" class="button-flare btn-a-green">
+                Изменить данные по услугам
+            </a>
+
+            <form id="personal_area_form" method="post">
+                {% csrf_token %}
+                {% include 'include/user-data.html' %}
+            </form>
+
+            <button class="button-flare btn-green btn-red">
+                <a href="{% url 'page_pa_user' user_data.id_user %}" class="btn-a-red">Отмена</a>
+            </button>
+        {% else %}
+            <h2 class="H-text-t2">Информация по Вашим услугам</h2>
+            <h3 class="H-text-t3 text-subheader">Ваши лицевые счета и их наличие на сайте Utilities</h3>
+            <a href="{% url 'page_pa_user' user_data.id_user %}" class="btn-a-green">
+                Вернуться к редактированию персональных данных
+            </a>
+
+            <form id="personal_area_form" method="post">
+                {% csrf_token %}
+
+                {% for field in form %}
+                    {% if field.help_text == 'start_div' %}
+                        <div class="{{ field.name }} service-block">
+                    {% endif %}
+
+                    {% if field.value == True or field.value == False %}
+                        <span class="main-checkbox">
+                            {{ field.as_widget }}
+                            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                        </span>
+                    {% else %}
+                        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                        {{ field.as_widget }}
+                    {% endif %}
+
+                    {% if field.help_text == 'end_div' %}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            {#            <section class="Profile">#}
+            {#                <h2 class="H-text-t2">Профиль</h2>#}
+            {##}
+            {#                <table class="table-user-info">#}
+            {#                    <tr>#}
+            {#                        <td class="table-item">Логин</td>#}
+            {#                        <th class="table-item">{{ user_data.login }}</th>#}
+            {#                        <td class="table-item">Редактировать</td>#}
+            {#                    </tr>#}
+            {#                    <tr>#}
+            {#                        <td class="table-item">Пароль</td>#}
+            {#                        <th class="table-item">***********</th>#}
+            {#                        <td class="table-item">Редактировать</td>#}
+            {#                    </tr>#}
+            {#                    <tr>#}
+            {#                        <td class="table-item">ФИО</td>#}
+            {#                        <th class="table-item">{{ user_data.name }}</th>#}
+            {#                        <td class="table-item">Редактировать</td>#}
+            {#                    </tr>#}
+            {#                    <tr>#}
+            {#                        <td class="table-item">Пол</td>#}
+            {#                        <th class="table-item">Мужской</th>#}
+            {#                        <td class="table-item">Редактировать</td>#}
+            {#                    </tr>#}
+            {#                    <tr>#}
+            {#                        <td class="table-item">Адрес</td>#}
+            {#                        <th class="table-item">{{ user_data.region }} {{ user_data.city }}</th>#}
+            {#                        <td class="table-item">Редактировать</td>#}
+            {#                    </tr>#}
+            {#                    <tr>#}
+            {#                        <td class="table-item"></td>#}
+            {#                        <th class="table-item">Переулок Южный 3</th>#}
+            {#                        <td class="table-item">Редактировать</td>#}
+            {#                    </tr>#}
+            {#                </table>#}
+            {#            </section>#}
+            {#            <section class="Contact">#}
+            {#                <h2 class="H-text-t2">Контактная информация</h2>#}
+            {##}
+            {#                <table class="table-user-info">#}
+            {#                    <tr>#}
+            {#                        <td class="table-item">Телефон</td>#}
+            {#                        <th class="table-item">+380660391180</th>#}
+            {#                        <td class="table-item">Редактировать</td>#}
+            {#                    </tr>#}
+            {#                    <tr>#}
+            {#                        <td class="table-item">Электронная почта</td>#}
+            {#                        <th class="table-item">ccoder.alex@gmail.com</th>#}
+            {#                        <td class="table-item">Редактировать</td>#}
+            {#                    </tr>#}
+            {#                </table>#}
+            {#            </section>#}
+            </form>
+
+            <button class="button-flare btn-green btn-red">
+                <a href="{% url 'page_pa_services' user_data.id_user %}" class="btn-a-red">Отмена</a>
+            </button>
+        {% endif %}
+
+        <button form="personal_area_form" type="submit" class="button-flare btn-green">Подтвердить изменение данных</button>
+    </main>
+{% endblock mcontent %}

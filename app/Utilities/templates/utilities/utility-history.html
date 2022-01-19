@@ -1,0 +1,128 @@
+{% extends 'utilities/base.html' %}
+{% load static %}
+
+{% block title %}
+    История передачи показаний Электричество
+{% endblock title %}
+
+{% block cssfiles %}
+    <link rel="stylesheet" href="{% static 'css/main-framework.css' %}">
+    <link rel="stylesheet" href="{% static 'css-unique/utility-history.css' %}">
+    <link rel="stylesheet" href="{% static 'css/main-modal-style.css' %}">
+{% endblock cssfiles %}
+
+
+{% block mcontent %}
+    <main class="element">
+        <h3 class="H-text-t3">История показаний {{ electricity_name }}</h3>
+        <input type="hidden" id="activate_modal_btn" class="open-modal">
+{#        <button class="btn-green open-modal">Добавить показание</button>#}
+
+        {% if messages %}
+            {% for mess in messages %}
+                    <!-- Modal -->
+                    <div class="modal">
+                        <div class="modal__content">
+                            <p>{{ mess }}</p>
+                            <button class="btn-green modal__close">ОК</button>
+                        </div>
+                    </div>
+                {% endfor %}
+        {% endif %}
+
+
+        {% if flag_update %}
+            <p>Страница редактирования</p>
+            <form id="update_data_form" method="post">
+                {% csrf_token %}
+                {{ form }}
+            </form>
+            <button form="update_data_form" class="btn-green" type="submit">Обновить</button>
+        {% else %}
+            <table class="table-history">
+                <tr class="head-table">
+                    <th class="table-item">id</th>
+                    <th class="table-item">Дата передачи показания</th>
+                    <th class="table-item">Основной счтечик</th>
+
+                    {% if token == 'Electricity' %}
+                        {% if services.availability_electricity_night %}
+                            <th class="table-item">Ночной счетчик</th>
+                        {% endif %}
+                    {% endif %}
+
+                    {% if token == 'Water' %}
+                        {% if services.availability_water_irrigation %}
+                            <th class="table-item">Вода для полива</th>
+                        {% endif %}
+                    {% endif %}
+                </tr>
+
+                {% for reading in history %}
+                    <tr {% if reading.id_reading|slugify == request.GET.id %} class="current-table-item" {% endif %}>
+                        <th class="table-item">{{ reading.id_reading }}</th>
+                        <td class="table-item">{{ reading.date_cr }}</td>
+                        <td class="table-item">{{ reading.first_cr }}</td>
+
+                        {% if token == 'Electricity' and services.availability_electricity_night == True %}
+                            <td class="table-item">{{ reading.second_cr }}</td>
+                        {% endif %}
+
+                        {% if token == 'Water' and services.availability_water_irrigation == True %}
+                            <td class="table-item">{{ reading.second_cr }}</td>
+                        {% endif %}
+                    </tr>
+                {% endfor %}
+
+{#            {% for reading in history %}#}
+{#                <tr {% if reading.id_reading|slugify == request.GET.id %} style="background: deepskyblue;" {% endif %}>#}
+{#                    <th class="table-item">{{ reading.id_reading }}</th>#}
+{#                    <td class="table-item">{{ reading.date_cr|date:"d.m.Y" }}</td>#}
+{#                    <td class="table-item">{{ reading.first_cr }}</td>#}
+{#                    <td class="table-item">{{ reading.second_cr }}</td>#}
+{##}
+{#                    <td class="table-item">#}
+{#                        {% if request.user == reading.username %}#}
+{#                        <a href="{% url 'page_update_e_history' reading.id_reading %}"#}
+{#                           class="btn-a-green">Редактировать</a>#}
+{#                        {% else %}#}
+{#                            <p>Нет доступа</p>#}
+{#                        {% endif %}#}
+{#                    </td>#}
+{#                    <td class="table-item">#}
+{#                        {% if request.user == reading.username %}#}
+{#                        <form id="delete_data_form_{{ reading.id_reading }}" method="post"#}
+{#                              action="{% url 'def_delete_e_history' reading.id_reading %}">{% csrf_token %}</form>#}
+{#                        <a href="javascript:void()" onclick="delete_question({{ reading.id_reading }})"#}
+{#                           class="btn-a-green">Удалить</a>#}
+{#                        {% else %}#}
+{#                            <p>Нет доступа</p>#}
+{#                        {% endif %}#}
+{#                    </td>#}
+{#                </tr>#}
+{#            {% endfor %}#}
+
+            </table>
+        {% endif %}
+        <!--<h3 class="H-text-t3">На странице может быть не более 10 показаний!</h3>-->
+    </main>
+
+{#    <!-- Modal -->#}
+{#    <div class="modal">#}
+{#        <div class="modal__content">#}
+{#            <form id="add_cr_form" method="post">#}
+{#                {% csrf_token %}#}
+{#                {{ form }}#}
+{#            </form>#}
+{#            <button class="btn-green modal__close">Отмена</button>#}
+{#            <button form="add_cr_form" class="btn-green" type="submit">Передать показание</button>#}
+{#        </div>#}
+{#    </div>#}
+
+{% endblock mcontent %}
+
+{% block jscript %}
+{#    <script src="{% static 'js/script.js' %}"></script>#}
+    <script src="{% static 'js/modal.js' %}"></script>
+    <script src="{% static 'js/activate-modal-on-load.js' %}"></script>
+{% endblock jscript %}

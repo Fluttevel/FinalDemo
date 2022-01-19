@@ -1,0 +1,183 @@
+{% extends 'utilities/base.html' %}
+{% load static %}
+
+
+{% block title %}
+    Главная страница
+{% endblock title %}
+
+
+{% block cssfiles %}
+    <link rel="stylesheet" href="{% static 'css/main-framework.css' %}">
+    <link rel="stylesheet" href="{% static 'css-unique/user-homepage.css' %}">
+    <link rel="stylesheet" href="{% static 'css/main-modal-style.css' %}">
+{% endblock cssfiles %}
+
+
+{% block mcontent %}
+    <main class="element">
+        <input type="hidden" id="activate_modal_btn" class="open-modal"> </input>
+
+        {% if messages %}
+            {% for mess in messages %}
+                    <!-- Modal -->
+                    <div class="modal">
+                        <div class="modal__content">
+                            <p>{{ mess }}</p>
+                            <button class="button-flare btn-green another-bg modal__close">ОК</button>
+                        </div>
+                    </div>
+                {% endfor %}
+        {% endif %}
+
+        {% for prov in providers %}
+            <section class="util-provider provider-{{ prov.url }}">
+                <div class="utility-info">
+                    <h3 class="H-text-t3">{{ prov.full_name }}</h3>
+                    <p>{{ prov.address }}</p>
+                    <p>{{ prov.tel_contact }}</p>
+                    <a href="pass/{{ prov.url }}/" class="button-flare btn-a-green">
+                        Передать показания
+                    </a>
+{#                    <a href="{{ prov.get_absolute_url }}" class="btn-a-green">#}
+{#                        Передать показания#}
+{#                    </a>#}
+                </div>
+
+                {% if prov.url == 'electricity' %}
+                    {% if services.availability_electricity %}
+                        <div class="last-CR">
+                            <p>Последнее показание</p>
+                            {% for history in history_e %}
+                                <p>{{ history.date_cr }}</p>
+                                <p>{{ history.first_cr }}</p>
+                            {% endfor %}
+                        </div>
+                        <div class="balance">
+                            <p>Состояние баланса</p>
+                            {% if last_cr.account_electricity_balance != 0 %}
+                                <p>на {{ last_cr.date_electricity_balance }}</p>
+                                <p {% if last_cr.account_electricity_balance < 0 %}style="color: #ff3853;"{% endif %}>
+                                    {{ last_cr.account_electricity_balance }} грн.
+                                </p>
+                            {% else %}
+                                <p>Нет данных</p>
+                                <p>о балансе</p>
+                            {% endif %}
+                        </div>
+
+                        <div class="user-account">
+                            <p>Лицевой счет <b>{{ services.account_electricity }}</b></p>
+                        </div>
+                    {% else %}
+                        <div class="last-CR">
+                            <p>Последнее показание</p>
+                            <p>Отсутсвует</p>
+                            <p></p>
+                        </div>
+                        <div class="balance">
+                            <p>Состояние баланса</p>
+                            <p>Нет данных</p>
+                            <p>о балансе</p>
+                        </div>
+
+                        <div class="user-account">
+                            <p>Лицевого счета нет</p>
+                        </div>
+                    {% endif %}
+                {% endif %}
+
+                {% if prov.url == 'water' %}
+                    {% if services.availability_water %}
+                        <div class="last-CR">
+                            <p>Последнее показание</p>
+                            {% for history in history_w %}
+                                <p>{{ history.date_cr }}</p>
+                                <p>{{ history.first_cr }}</p>
+                            {% endfor %}
+                        </div>
+                        <div class="balance">
+                            <p>Состояние баланса</p>
+                            {% if last_cr.account_water_balance != 0 %}
+                                <p>на {{ last_cr.date_water_balance }}</p>
+                                <p {% if last_cr.account_water_balance < 0 %}style="color: #ff3853;"{% endif %}>
+                                    {{ last_cr.account_water_balance }} грн.
+                                </p>
+                            {% else %}
+                                <p>Нет данных</p>
+                                <p>о балансе</p>
+                            {% endif %}
+                        </div>
+
+                        <div class="user-account">
+                            <p>Лицевой счет <b>{{ services.account_water }}</b></p>
+                        </div>
+                    {% else %}
+                        <div class="last-CR">
+                            <p>Последнее показание</p>
+                            <p>Отсутсвует</p>
+                            <p></p>
+                        </div>
+                        <div class="balance">
+                            <p>Состояние баланса</p>
+                            <p>Нет данных</p>
+                            <p>о балансе</p>
+                        </div>
+
+                        <div class="user-account">
+                            <p>Лицевого счета нет</p>
+                        </div>
+                    {% endif %}
+                {% endif %}
+
+                {% if prov.url == 'gas' %}
+                    {% if services.availability_gas %}
+                        <div class="last-CR">
+                            <p>Последнее показание</p>
+                            {% for history in history_g %}
+                                <p>{{ history.date_cr }}</p>
+                                <p>{{ history.first_cr }}</p>
+                            {% endfor %}
+                        </div>
+                        <div class="balance">
+                            <p>Состояние баланса</p>
+                            {% if last_cr.account_gas_balance != 0 %}
+                                <p>на {{ last_cr.date_gas_balance }}</p>
+                                <p {% if last_cr.account_gas_balance < 0 %}style="color: #ff3853;"{% endif %}>
+                                    {{ last_cr.account_gas_balance }} грн.
+                                </p>
+                            {% else %}
+                                <p>Нет данных</p>
+                                <p>о балансе</p>
+                            {% endif %}
+                        </div>
+
+                        <div class="user-account">
+                            <p>Лицевой счет <b>{{ services.account_gas }}</b></p>
+                        </div>
+                    {% else %}
+                        <div class="last-CR">
+                            <p>Последнее показание</p>
+                            <p>Отсутсвует</p>
+                            <p></p>
+                        </div>
+                        <div class="balance">
+                            <p>Состояние баланса</p>
+                            <p>Нет данных</p>
+                            <p>о балансе</p>
+                        </div>
+
+                        <div class="user-account">
+                            <p>Лицевого счета нет</p>
+                        </div>
+                    {% endif %}
+                {% endif %}
+            </section>
+        {% endfor %}
+    </main>
+{% endblock mcontent %}
+
+{% block jscript %}
+    <script src="{% static 'js/modal.js' %}"></script>
+    <script src="{% static 'js/activate-modal-on-load.js' %}"></script>
+{% endblock jscript %}

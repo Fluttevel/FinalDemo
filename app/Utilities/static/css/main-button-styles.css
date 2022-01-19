@@ -1,0 +1,42 @@
+a.button-flare
+{
+    margin-top: -15px;
+    margin-bottom: -15px;
+}
+
+button.button-flare
+{
+  margin-top: 5px;
+}
+
+.button-flare {
+  text-decoration: none;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+.button-flare:before {
+  content: "";
+  background-color: rgba(255, 255, 255, 0.5);
+  height: 100%;
+  width: 3em;
+  /*display: block;*/
+  position: absolute;
+  top: 0;
+  left: -4.5em;
+  -webkit-transform: skewX(-45deg) translateX(0);
+          transform: skewX(-45deg) translateX(0);
+  -webkit-transition: none;
+  transition: none;
+}
+.button-flare:hover {
+  background: linear-gradient(45deg, rgba(0, 120, 80, 0.7) 0%, rgba(0, 133, 20, 0.7) 100%);
+}
+.button-flare:hover:before {
+  -webkit-transform: skewX(-45deg) translateX(35em);
+          transform: skewX(-45deg) translateX(35em);
+  -webkit-transition: all 0.7s ease-in-out;
+  transition: all 0.7s ease-in-out;
+}

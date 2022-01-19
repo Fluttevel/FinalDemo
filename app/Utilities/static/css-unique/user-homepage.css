@@ -1,0 +1,104 @@
+/**/
+main.element
+{
+    /* => GRID */
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-areas:
+        "elc"
+        "wtr"
+        "gas";
+}
+
+.provider-electricity
+{
+    grid-area: elc;
+}
+
+.provider-water
+{
+    grid-area: wtr;
+}
+
+.provider-gas
+{
+    grid-area: gas;
+}
+
+
+.util-provider
+{
+    margin: 14px;
+    border: 3px solid lawngreen;
+    border-radius: 15px;
+
+    /* => GRID */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 60px 158px;
+    grid-template-areas:
+        "inf inf acc acc"
+        "inf inf lcr bal";
+}
+
+.utility-info
+{
+    grid-area: inf;
+    border-right: 3px solid lawngreen;
+    background: linear-gradient(180deg, rgba(57, 213, 10, 0.5) 0%, rgba(12, 41, 126, 0.5) 100%);
+}
+
+.last-CR
+{
+    grid-area: lcr;
+    border-top: 3px solid lawngreen;
+    border-right: 3px solid lawngreen;
+    border-top-right-radius: 55px;
+}
+
+.balance
+{
+    grid-area: bal;
+    border-top: 3px solid lawngreen;
+
+    border-top-left-radius: 45px;
+}
+
+.user-account
+{
+    grid-area: acc;
+}
+
+.utility-info, .last-CR, .balance, .user-account
+{
+    text-align: center;
+}
+
+.another-bg
+{
+    background: linear-gradient(45deg, rgba(0, 184, 255, 0.5) 0%, rgba(0, 111, 255, 0.5) 100%);
+}
+
+.another-bg:hover
+{
+    background: linear-gradient(45deg, rgb(40, 72, 255) 0%, rgb(25, 150, 255) 100%);
+    box-shadow: 0 0 5px 1px blue;
+}
+
+/* TEMP */
+/*
+div.utility-info, div.last-CR, div.balance, div.user-account
+{
+    border: 10px solid black;
+    border-radius: 10px;
+    background: yellow;
+}
+
+.provider-elec, .provider-water, .provider-gas
+{
+    border: 3px solid yellow;
+    border-radius: 10px;
+    background: greenyellow;
+}
+*/

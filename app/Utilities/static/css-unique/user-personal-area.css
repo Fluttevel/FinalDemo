@@ -1,0 +1,389 @@
+main.element
+{
+    text-align: center;
+    font-size: 20px;
+}
+
+.text-subheader
+{
+    margin-bottom: 25px;
+}
+
+.txt-green
+{
+    font-size: 22px;
+}
+
+.btn-green
+{
+    text-decoration: none;
+    color: black;
+}
+
+.btn-a-red
+{
+    text-decoration: none;
+    color: black;
+}
+
+.btn-red
+{
+    background: linear-gradient(175deg, #ffb268 0%, #dd3b00 70%);
+    padding: 10px 30px 10px 30px;
+}
+
+.btn-red:hover
+{
+    box-shadow: 0 0 10px 3px #ff4b13;
+    background: #ff6f72;
+}
+
+.btn-red:focus
+{
+    border: 5px solid red;
+}
+
+.data-block
+{
+    margin: 5px 20px 0 20px;
+    padding: 0 30px 0 30px;
+    border: 3px solid lawngreen;
+    border-radius: 10px;
+    height: 155px;
+    width: 90%;
+    transition: 0.5s;
+}
+
+.data-block:hover
+{
+    background: rgba(0, 205, 0, 0.3);
+    box-shadow: 0 0 10px 3px black;
+    margin-left: 10px;
+}
+
+.header-dblock-text
+{
+    grid-area: htxt;
+    margin-bottom: 10px;
+    border-bottom: 3px solid lawngreen;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 15%;
+}
+
+.personal-user-data
+{
+    margin-top: 15px;
+    display: grid;
+    grid-template-columns: 270px 270px 270px 175px;
+    grid-template-rows: 70px 30px 45px;
+    grid-template-areas:
+        "htxt htxt htxt htxt"
+        "lsur lnam lpat lgen"
+        "isur inam ipat igen";
+}
+
+.ud-sur-name
+{
+    grid-area: isur;
+}
+
+.ud-name
+{
+    grid-area: inam;
+}
+
+.ud-patronymic
+{
+    grid-area: ipat;
+}
+
+.ud-gender
+{
+    grid-area: igen;
+}
+
+.lab_sur_name
+{
+    grid-area: lsur;
+}
+
+.lab_name
+{
+    grid-area: lnam;
+}
+
+.lab_patronymic
+{
+    grid-area: lpat;
+}
+
+.lab_gender
+{
+    grid-area: lgen;
+}
+
+
+.location-user
+{
+    height: 180px;
+    display: grid;
+    vertical-align: center;
+    align-content: center;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 70px 55px 45px;
+    grid-template-areas:
+        "htxt htxt htxt htxt htxt htxt htxt htxt htxt htxt htxt htxt"
+        "lreg lreg lreg lcit lcit lcit lstr lstr lstr lhou lpre lfla"
+        "ireg ireg ireg icit icit icit istr istr istr ihou ipre ifla";
+}
+
+.ud-region
+{
+    grid-area: ireg;
+}
+
+.ud-city
+{
+    grid-area: icit;
+}
+
+.ud-street
+{
+    grid-area: istr;
+}
+
+.ud-house
+{
+    grid-area: ihou;
+}
+
+.ud-prefix-house
+{
+    grid-area: ipre;
+}
+
+.ud-flat
+{
+    grid-area: ifla;
+}
+
+.lab_region
+{
+    grid-area: lreg;
+}
+
+.lab_city
+{
+    grid-area: lcit;
+}
+
+.lab_street
+{
+    grid-area: lstr;
+}
+
+.lab_house
+{
+    grid-area: lhou;
+}
+
+.lab_prefix_house
+{
+    grid-area: lpre;
+}
+
+.lab_flat
+{
+    grid-area: lfla;
+}
+
+
+.contact-user
+{
+    display: grid;
+    grid-template-columns: 285px 285px 400px;
+    grid-template-rows: 70px 30px 45px;
+    grid-template-areas:
+        "htxt htxt htxt"
+        "ltel lext lema"
+        "itel iext iema";
+}
+
+.ud-tel-number
+{
+    grid-area: itel;
+}
+
+.ud-tel-number-extra
+{
+    grid-area: iext;
+}
+
+.ud-email
+{
+    grid-area: iema;
+}
+
+.lab_tel_number
+{
+    grid-area: ltel;
+}
+
+.lab_tel_number_extra
+{
+    grid-area: lext;
+}
+
+.lab_email
+{
+    grid-area: lema;
+}
+
+
+.main-checkbox
+{
+    border-right: 3px solid lawngreen;
+    border-radius: 0 0 20px 0;
+    margin-right: 10px;
+    padding-right: 10px;
+    padding-left: 30px;
+}
+
+.service-block
+{
+    border: 3px solid rgba(0, 0, 0, 0.1);
+    border-bottom-color: lawngreen;
+    border-right: lawngreen;
+    border-radius: 0px 5px 100px 5px;
+    padding: 15px 0px 15px 0px;
+    width: 1050px;
+    margin: 20px 20px 0 20px;
+    text-align: left;
+
+    transition: 0.5s;
+}
+
+.service-block:hover
+{
+    background: rgba(32, 255, 0, 0.3);
+    border: 3px solid lawngreen;
+    border-radius: 20px;
+    box-shadow: 0 0 7px 1px black;
+}
+
+/*section.Profile, section.Contact*/
+/*{*/
+/*    border: 3px solid lawngreen;*/
+/*    margin: 20px 20px 0 20px;*/
+/*    padding: 0 10px 0 10px;*/
+/*    border-radius: 10px;*/
+/*    text-align: left;*/
+/*    background: rgba(10, 24, 70, 0.3);*/
+/*}*/
+
+/*.table-user-info*/
+/*{*/
+/*    border-collapse: collapse;*/
+/*}*/
+
+/*tr*/
+/*{*/
+/*    border-top: 3px ridge lawngreen;*/
+/*}*/
+
+/*tr .table-item:nth-child(1)*/
+/*{*/
+/*    padding-left: 20px;*/
+/*    width: 200px;*/
+/*    height: 35px;*/
+/*}*/
+
+/*tr .table-item:nth-child(2)*/
+/*{*/
+/*    width: 500px;*/
+/*}*/
+
+/*tr .table-item:nth-child(3)*/
+/*{*/
+/*    width: 320px;*/
+/*}*/
+
+/*tr:hover*/
+/*{*/
+/*    background: rgba(0, 208, 10, 0.3);*/
+/*}*/
+
+/* Checkbox */
+.main-checkbox
+{
+    position: relative;
+}
+
+.custom-checkbox
+{
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+
+.custom-checkbox + label
+{
+    display: inline-flex;
+    align-items: center;
+    user-select: none;
+}
+
+.custom-checkbox + label::before
+{
+    content: '';
+    display: inline-block;
+    width: 1.5em;
+    height: 1.5em;
+    flex-shrink: 0;
+    flex-grow: 0;
+    border: 3px solid #e9e62a;
+    background: rgba(145, 66, 60, 0.5);
+    border-radius: 0.25em;
+    margin-right: 0.5em;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 50% 50%;
+}
+
+.custom-checkbox:checked + label::before
+{
+    border-color: #00ef11;
+    background-color: #00ef0e;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
+}
+
+/* стили при наведении курсора на checkbox */
+.custom-checkbox:not(:disabled):not(:checked) + label:hover::before
+{
+    border-color: #51ffbc;
+}
+
+/* стили для активного состояния чекбокса (при нажатии на него) */
+.custom-checkbox:not(:disabled):active + label::before
+{
+    background-color: #3eff9e;
+    border-color: #7dff81;
+}
+
+/* стили для чекбокса, находящегося в фокусе */
+.custom-checkbox:focus + label::before
+{
+    box-shadow: 0 0 0 10px rgba(29, 255, 0, 0.4);
+}
+
+/* стили для чекбокса, находящегося в фокусе и не находящегося в состоянии checked */
+.custom-checkbox:focus:not(:checked) + label::before
+{
+    border-color: #6aff72;
+}
+
+/* стили для чекбокса, находящегося в состоянии disabled */
+.custom-checkbox:disabled + label::before
+{
+    background-color: #e9ecef;
+}

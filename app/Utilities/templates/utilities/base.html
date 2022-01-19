@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+
+{% endblock title %}
+
+
+{% block cssfiles %}
+
+{% endblock cssfiles %}
+
+
+{% block content %}
+    {% include 'include/header.html' %}
+    {% include 'include/sidebar.html' %}
+
+    {% block mcontent %}
+
+    {% endblock mcontent %}
+
+    {% include 'include/footer.html' %}
+{% endblock content %}
+
+{% block jscript %}
+
+{% endblock jscript %}

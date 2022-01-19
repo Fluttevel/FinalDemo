@@ -1,0 +1,50 @@
+main.element
+{
+    text-align: center;
+}
+
+.table-history
+{
+    width: 90%;
+    margin: 30px 5% 10px 5%;
+    border-collapse: collapse;
+}
+
+tr, th
+{
+    border: 3px solid #1dff13;
+    height: 50px;
+}
+
+tr.head-table
+{
+    background: rgba(0, 229, 178, 0.4);
+    height: 60px;
+}
+
+.table-item:nth-child(1)
+{
+    width: 15%;
+}
+
+.table-item:nth-child(2)
+{
+    width: 25%;
+}
+
+ .table-item:nth-child(3), .table-item:nth-child(4)
+{
+    width: 30%;
+}
+
+
+tr:nth-child(even)
+{
+    background: rgba(54, 75, 38, 0.3);
+}
+
+.current-table-item
+{
+    /*background: rgba(7, 255, 51, 1);*/
+    box-shadow: 0 0 10px 3px inset black;
+}

@@ -1,0 +1,218 @@
+{% extends 'utilities/base.html' %}
+{% load static %}
+
+
+{% block title %}
+    Передача показаний
+{% endblock title %}
+
+
+{% block cssfiles %}
+    <link rel="stylesheet" href="{% static 'css/main-framework.css' %}">
+    <link rel="stylesheet" href="{% static 'css-unique/utility-provider-styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/main-modal-style.css' %}">
+    <link rel="stylesheet" href="{% static 'calendar/css/xcalendar.css' %}">
+{% endblock cssfiles %}
+
+
+{% block mcontent %}
+    <main class="element">
+        <section class="provider-full-info">
+            <h1>{{ provider.full_name }}</h1>
+            <p>{{ provider.address }}</p>
+            <p>{{ provider.tel_contact }} {{ provider.email }}</p>
+        </section>
+
+{#        {% if token == 'Electricity' and services.availability_electricity_night == True %}#}
+{#            class="pass-CR"#}
+{#        {% endif %}#}
+{#        {% if token == 'Water' and services.availability_water_irrigation == True %}#}
+{#            class="pass-CR"#}
+{#        {% endif %}#}
+{#        {% if token == 'Gas' %}#}
+{#            class="pass-CR-2"#}
+{#        {% endif %}#}
+
+        <input type="hidden" id="activate_modal_btn" class="open-modal">
+        {# Если нет ни одной услуги Электричество #}
+        {% if token == 'Electricity' %}
+            {% if not services.availability_electricity %}
+                <!-- Modal -->
+                <div class="modal">
+                    <div class="modal__content">
+                        <h3 class="H-text-t3">У вас нет услуг поставщика {{ provider.full_name }}!</h3>
+                        <p>Рекомендуем вам связаться с поставщиком услуг</p>
+                        <hr>
+                        <p>Или перейдите в личный кабинет, для ввода</p>
+                        <p>лицевого счёта и его подтверждения.</p>
+                        <button class="button-flare btn-green another-bg">
+                            <a href="{% url 'user_home' %}" class="none-decor">
+                                Главная страница
+                            </a>
+                        </button>
+                        <button class="button-flare btn-green another-bg">
+                            <a href="{% url 'page_pa_services' user_data.id_user %}" class="none-decor">
+                                Личный кабинет
+                            </a>
+                        </button>
+                    </div>
+                </div>
+            {% endif %}
+        {% endif %}
+        {# Если нет ни одной услуги Вода #}
+        {% if token == 'Water' %}
+            {% if not services.availability_water %}
+                <!-- Modal -->
+                <div class="modal">
+                    <div class="modal__content">
+                        <h3 class="H-text-t3">У вас нет услуг поставщика {{ provider.full_name }}!</h3>
+                        <p>Рекомендуем вам связаться с поставщиком услуг</p>
+                        <hr>
+                        <p>Или перейдите в личный кабинет, для ввода</p>
+                        <p>лицевого счёта и его подтверждения.</p>
+                        <button class="button-flare btn-green another-bg">
+                            <a href="{% url 'user_home' %}" class="none-decor">
+                                Главная страница
+                            </a>
+                        </button>
+                        <button class="button-flare btn-green another-bg">
+                            <a href="{% url 'page_pa_services' user_data.id_user %}" class="none-decor">
+                                Личный кабинет
+                            </a>
+                        </button>
+                    </div>
+                </div>
+            {% endif %}
+        {% endif %}
+        {# Если нет ни одной услуги Газ #}
+        {% if token == 'Gas' %}
+            {% if not services.availability_gas %}
+                <!-- Modal -->
+                <div class="modal">
+                    <div class="modal__content">
+                        <h3 class="H-text-t3">У вас нет услуг поставщика {{ provider.full_name }}!</h3>
+                        <p>Рекомендуем вам связаться с поставщиком услуг</p>
+                        <hr>
+                        <p>Или перейдите в личный кабинет, для ввода</p>
+                        <p>лицевого счёта и его подтверждения.</p>
+                        <button class="button-flare btn-green another-bg">
+                            <a href="{% url 'user_home' %}" class="none-decor">
+                                Главная страница
+                            </a>
+                        </button>
+                        <button class="button-flare btn-green another-bg">
+                            <a href="{% url 'page_pa_services' user_data.id_user %}" class="none-decor">
+                                Личный кабинет
+                            </a>
+                        </button>
+                    </div>
+                </div>
+            {% endif %}
+        {% endif %}
+
+        {# FORM UNFINISHED #}
+{#        {% if token == 'Gas' %}#}
+{#            <form id="pass_form" method="post" class="pass-CR-2">#}
+{#        {% else %}#}
+{#            {% if services.availability_electricity_night == False or services.availability_water_irrigation == Flase %}#}
+{#                <form id="pass_form" method="post" class="pass-CR-2">#}
+{#            {% endif %}#}
+{#        {% endif %}#}
+{#    #}
+        {# Если есть хоть одна доп услуга - Проверка! #}
+{#        {% if services.availability_electricity_night or services.availability_water_irrigation %}#}
+            {# Если страница Электричество и в наличии ночной счетчик #}
+{#            {% if token == 'Electricity' and services.availability_electricity_night %}#}
+{#                <form id="pass_form" method="post" class="pass-CR">#}
+{#            {% endif %}#}
+            {# Если страница Вода и в наличии счетчик воды для полива #}
+{#            {% if token == 'Water' and services.availability_water_irrigation %}#}
+{#                <form id="pass_form" method="post" class="pass-CR">#}
+{#            {% endif %}#}
+{#        {% endif %}#}
+        {% if token == 'Electricity' or token == 'Water' %}
+            {% if token == 'Electricity' and services.availability_electricity_night %}
+                <form id="pass_form" method="post" class="pass-CR">
+            {% else %}
+                {% if token == 'Electricity' %}
+                    <form id="pass_form" method="post" class="pass-CR-2">
+                {% endif %}
+            {% endif %}
+            {% if token == 'Water' and services.availability_water_irrigation %}
+                <form id="pass_form" method="post" class="pass-CR">
+            {% else %}
+                {% if token == 'Water' %}
+                    <form id="pass_form" method="post" class="pass-CR-2">
+                {% endif %}
+            {% endif %}
+        {% else %}
+            <form id="pass_form" method="post" class="pass-CR-2">
+        {% endif %}
+
+            {% csrf_token %}
+            <h2 class="H-text-t2 header-text">Передача показаний</h2>
+
+            <button class="button-flare btn-green btn-show-history">
+                <a href="/history/{{ provider.url }}/" class="none-decor">
+                    Посмотреть историю<br>передачи показаний
+                </a>
+            </button>
+
+
+            {% for field in form %}
+                {% if token == 'Electricity' or token == 'Water' %}
+                    {# Электричество #}
+                    {% if token == 'Electricity' and services.availability_electricity_night %}
+                        <div class="{{ field.name }}">
+                            {{ field.label_tag }}
+                            {{ field.as_widget }}
+                            <div class="help-text">{{ field.help_text }}</div>
+                        </div>
+                    {% else %}
+                        {% if token == 'Electricity' and field.name != 'second_cr' %}
+                            <div class="{{ field.name }}">
+                                {{ field.label_tag }}
+                                {{ field.as_widget }}
+                                <div class="help-text">{{ field.help_text }}</div>
+                            </div>
+                        {% endif %}
+                    {% endif %}
+
+                    {# Вода #}
+                    {% if token == 'Water' and services.availability_water_irrigation %}
+                        <div class="{{ field.name }}">
+                            {{ field.label_tag }}
+                            {{ field.as_widget }}
+                            <div class="help-text">{{ field.help_text }}</div>
+                        </div>
+                    {% else %}
+                        {% if token == 'Water' and field.name != 'second_cr' %}
+                            <div class="{{ field.name }}">
+                                {{ field.label_tag }}
+                                {{ field.as_widget }}
+                                <div class="help-text">{{ field.help_text }}</div>
+                            </div>
+                        {% endif %}
+                    {% endif %}
+
+                {# Газ #}
+                {% else %}
+                    <div class="{{ field.name }}">
+                        {{ field.label_tag }}
+                        {{ field.as_widget }}
+                        <div class="help-text">{{ field.help_text }}</div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+            <button form="pass_form" type="submit" name="pass_btn" class="button-flare btn-green btn-pass-CR">
+                Передать!
+            </button>
+        </form>
+    </main>
+{% endblock mcontent %}
+
+{% block jscript %}
+    <script src="{% static 'js/modal.js' %}"></script>
+    <script src="{% static 'js/activate-modal-on-load.js' %}"></script>
+    <script src="{% static 'calendar/js/xcalendar.js' %}"></script>
+{% endblock jscript %}

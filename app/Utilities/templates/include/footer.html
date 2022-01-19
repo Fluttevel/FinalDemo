@@ -1,0 +1,8 @@
+<footer class="element">
+    {% for prov in providers %}
+        <div class="Utility-{{ prov.url }}">
+            <p>{{ prov.full_name }}</p>
+            <p>{{ prov.tel_contact }}</p>
+        </div>
+    {% endfor %}
+</footer>

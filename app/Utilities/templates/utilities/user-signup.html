@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Регистрация
+{% endblock title %}
+
+{% block cssfiles %}
+    <link rel="stylesheet" href="{% static 'css-unique/user-sign-in-up.css' %}">
+    <link rel="stylesheet" href="{% static 'css-unique/user-personal-area.css' %}">
+{% endblock cssfiles %}
+
+{% block content %}
+    <main class="center-box center-box{% if request.path == '/sign-up/' %}-register{% endif %}">
+        {# MODAL #}
+        <img src="{% static 'img/Logo-Utilities.png' %}" class="Img-text">
+        <h3 class="H-text-t3">{{ translit }}</h3>
+
+        {% if request.path == '/sign-up-services/' or request.path == '/sign-up-last-cr/' %}
+            <form method="post">
+                {% csrf_token %}
+                {% for field in form %}
+                    {% for error in field.errors %}
+                        <p>{{ field.name }} - {{ error }}</p>{# MODAL #}
+                    {% endfor %}
+                {% endfor %}
+                <button id="btn-redirect" type="submit" class="button-flare btn-green">Регистрируем...</button>{# Можно сделать красивую ту хрень с входа #}
+            </form>
+            {% block jscript %}
+                <script src="{% static 'js/redirect-to-next-page.js' %}"></script>
+            {% endblock jscript %}
+        {% else %}
+            <form id="sign_up_form" method="post">
+                {% csrf_token %}
+                {% if request.path == '/pre-sign-up/' %}
+                    {{ form }}
+                {% endif %}
+                {% if request.path == '/sign-up/' %}
+                    {% include 'include/user-data.html' %}
+                {% endif %}
+
+                <button class="button-flare btn-a-green">
+                    <a href="{% url 'page_sign_in' %}" class="none-decor">Войти</a>
+                </button>
+                <button form="sign_up_form" type="submit" class="button-flare btn-green">Зарегестрироваться</button>
+            </form>
+        {% endif %}
+
+{#        <p class="text-login">Логин</p>#}
+{#        <input type="text" class="txt-green user-login">#}
+{#        <p class="text-password">Пароль</p>#}
+{#        <input type="password" class="txt-green user-password">#}
+{#        <button class="signin btn-green">Войти</button>#}
+{##}
+{#        <br>#}
+{#        <a href="#" class="singup btn-a-green">Быстрая регистрация</a>#}
+{#        <a href="#" class="forgot-PW btn-a-green">Забыли пароль?</a>#}
+    </main>
+{% endblock content %}

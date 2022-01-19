@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <title>Передача показаний</title>
+        <link rel="stylesheet" href="{% static 'css/main-framework.css' %}">
+        <link rel="stylesheet" href="{% static 'css/main-styles.css' %}">
+        <!-- Файл адаптивность -->
+
+        <link rel="stylesheet" href="{% static 'css-unique/utility-provider-styles.css' %}">
+    </head>
+    <body>
+        <div class="container">
+            <header class="element">
+                <a href="#" class="Home-btn-logo-m">
+                    <img src="{% static 'img/Logo-Img-Utilities.png' %}" class="Img-logo-m">
+                </a>
+                <a href="#" class="Home-btn-text-m">
+                    <img src="{% static 'img/Logo-Utilities.png' %}" class="Img-text-m">
+                </a>
+
+                <p class="User-name-m">Алексей</p>
+                <a href="#" class="Exit-btn-m">
+                    <img src="{% static 'img/Exit.png' %}" class="Img-exit-m">
+                </a>
+            </header>
+
+            <section class="element">
+<!--                <p class="H-text-t1">Данные о пользователе</p>-->
+                <img src="{% static 'img/User-info.png' %}" class="Img-text-s">
+                <dl>
+                    <dt><img src="{% static 'img/Full-name-Img-sm.png' %}" class="Img-sm-text-s"></dt>
+                        <dd>
+                            Череповский Алексей Владимирович
+                        </dd>
+                    <dt><img src="{% static 'img/Login-Img-sm.png' %}" class="Img-sm-text-s"></dt>
+                        <dd>
+                            Ccoder
+                        </dd>
+                    <dt><img src="{% static 'img/City-Img-sm.png' %}" class="Img-sm-text-s"></dt>
+                        <dd>
+                            Луганская область
+                        </dd>
+                        <dd>
+                            Город Сватово
+                        </dd>
+                        <dd>
+                            Переулок Южный 3
+                        </dd>
+                    <dt><img src="{% static 'img/Contacts-Img-sm.png' %}" class="Img-sm-text-s"></dt>
+                        <dd>
+                            +380660391180
+                        </dd>
+                        <dd>
+                            ccoder.alex@gmail.com
+                        </dd>
+                </dl>
+            </section>
+
+            <main class="element">
+                <section class="provider-full-info">
+                    <h1>{{ provider.fullName }}</h1>
+                    <p>{{ provider.address }}</p>
+                    <p>{{ provider.telContact }}, {{ provider.email }}</p>
+                </section>
+
+                <section class="pass-CR">
+                    <h3 class="header-text">Передача показаний</h3>
+                    <button class="btn-green btn-show-history">
+                        Посмотреть историю<br>передачи показаний
+                    </button>
+                    <div class="date-CR">
+                        <p>Выбор даты</p>
+                        <p>передачи показаний</p>
+                        <input type="date" class="calendar-date">
+                    </div>
+                    <div class="first-CR">
+                        <p>Передача показаний</p>
+                        <p>дневного счетчика</p>
+                        <input type="number" class="txt-green" placeholder="99999">
+                    </div>
+                    <div class="second-CR">
+                        <p>Передача показаний</p>
+                        <p>ночного счетчика</p>
+                        <input type="number" class="txt-green" placeholder="99999">
+                    </div>
+                    <button class="btn-green btn-pass-CR">Передать!</button>
+                </section>
+            </main>
+
+            <footer class="element">
+                {% for prov in providers %}
+                    <div class="Utility-{{ prov.url }}">
+                        <p>{{ prov.fullName }}</p>
+                        <p>{{ prov.telContact }}</p>
+                    </div>
+                {% endfor %}
+            </footer>
+        </div>
+    </body>
+</html>

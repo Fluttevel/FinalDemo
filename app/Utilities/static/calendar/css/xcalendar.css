@@ -1,0 +1,97 @@
+.xcalend
+{
+    position: absolute;
+    z-index: 999;
+    width: 250px;
+    line-height: 0.8em;
+    font-size: 15px;
+    text-align: center;
+    background: radial-gradient(circle, #b7f8ff 20%, #9dffd9 70%, #6aff54 100%);
+    border: 3px solid blue;
+    /*background: radial-gradient(circle, #00ffc9 20%, #00bcff 70%, #0047ff 100%);*/
+    /*border: 3px solid lawngreen;*/
+    border-radius: 10px;
+}
+.xcalend td
+{
+    cursor: pointer;
+    padding: 6px;
+}
+.xcalend thead td
+{
+    color: #000000;
+    /*font-weight: bold;*/
+    letter-spacing: 3px;
+}
+.xcalend thead tr:last-child td
+{
+    font-size: 12px;
+    background: #2571ff;
+    color: #ffffff;
+    cursor: default;
+    border-radius: 5px;
+}
+.xcalend tbody td
+{
+    color: #001355;
+}
+.xcalend tfoot td
+{
+    color: #000000;
+    /*font-weight: bold;*/
+    letter-spacing: 3px;
+}
+.xcalend tbody td.tday
+{
+    background: #f7ff96;
+    font-weight: bold;
+    font-style: italic;
+    border-radius: 5px;
+}
+.xcalend tbody td:hover, .xcalend td:hover
+{
+    background: lawngreen;
+    color: #2800ff;
+    font-weight: bold;
+    border-radius: 5px;
+    box-shadow: 0 0 10px 1px black;
+}
+.xcalend tbody td:nth-child(n+6)
+{
+    color: #002300;
+    font-weight: bold;
+}
+.xcalend .cal-first td:nth-last-child(-n+2)
+{
+    color: #002300;
+    font-weight: bold;
+}
+.xcalend tbody td.today
+{
+    background: #eeeb00;
+    font-weight: bold;
+    border-radius: 5px;
+    box-shadow: 0 0 3px inset black;
+}
+.xcalend tbody td.bold
+{
+    font-weight: bold;
+}
+.xcalend tbody td.cal-l b, .xcalend tbody td.cal-r b
+{
+    display: none;
+}
+.xcalend tbody td.cal-l:hover b, .xcalend tbody td.cal-r:hover b
+{
+    display: inline;
+}
+.xcalend a
+{
+    text-decoration: none;
+}
+.xcalend th a
+{
+    color: rgba(0, 0, 0, 0.1);
+    display: block;
+    padding: 5px 0;
+}

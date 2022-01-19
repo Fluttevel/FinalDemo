@@ -1,0 +1,261 @@
+/*=====================================*/
+ /*=====|-|  main-styles.css  |-|=======*/
+  /*=====================================*/
+  /*=| Различные оформления шрифтов    |=*/
+  /*=| и пользовательских интерфейсов  |=*/
+
+
+  /*==================*/
+ /* --=| BUTTON |=-- */
+/*==================*/
+
+
+/* | button green | - градиентная зеленая кнопочка */
+.btn-green
+{
+    font-size: 16px;
+    height: 50px;
+    margin: 10px 30px 10px 30px;
+    padding: 5px 30px 5px 30px;
+    border: 3px solid black;
+    border-radius: 8px;
+    cursor: pointer !important;
+    transition: 0.5s;
+    background: linear-gradient(45deg, #00ffad 0%, #00ff28 100%);
+}
+
+/* || Событие наведения курсора мыши на || Градиентную зеленую кнопочку */
+.btn-green:hover
+{
+    box-shadow: 0 0 5px 3px lawngreen;
+    color: #aefc6d;
+}
+
+/* || Событие фокуса на || Градиентную зеленую кнопочку*/
+.btn-green:focus
+{
+    box-shadow: 0 0 15px 9px #00c4fc;
+    border: 5px solid mediumspringgreen;
+    background: rgba(27, 110, 99, 0.3);
+    color: lawngreen;
+    transform: scale(0.9);
+}
+
+/* | button-reference green | - зеленая типа кнопка, ссылка перехода на другую страницу */
+.btn-a-green
+{
+    font-family: inherit;
+    background: rgba(70, 70, 70, 0.1);
+    padding: 10px 35px 10px 35px;
+    text-decoration: none;
+    color: white;
+    border: 3px solid lawngreen;
+    border-radius: 3px;
+    transition: 0.5s;
+}
+
+/* || Событие наведения курсора мыши на ||  */
+.btn-a-green:hover
+{
+    background: rgba(0, 135, 0, 0.3);
+    letter-spacing: 3px;
+    border-radius: 3px 15px 3px 15px;
+}
+
+/* || Событие фокуса || Типа градиентную кнопочку */
+.btn-a-green:focus
+{
+    box-shadow: 0 0 15px inset #3cfff5;
+}
+
+.button-flare {
+  margin: 0;
+  text-decoration: none;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+.button-flare:before {
+  content: "";
+  background-color: rgba(255, 255, 255, 0.5);
+  height: 100%;
+  width: 3em;
+  /*display: block;*/
+  position: absolute;
+  top: 0;
+  left: -4.5em;
+  -webkit-transform: skewX(-45deg) translateX(0);
+          transform: skewX(-45deg) translateX(0);
+  -webkit-transition: none;
+  transition: none;
+}
+.button-flare:hover {
+  background: linear-gradient(45deg, rgba(0, 120, 80, 0.7) 0%, rgba(0, 133, 20, 0.7) 100%);
+}
+.button-flare:hover:before {
+  -webkit-transform: skewX(-45deg) translateX(30em);
+          transform: skewX(-45deg) translateX(30em);
+  -webkit-transition: all 0.7s ease-in-out;
+  transition: all 0.7s ease-in-out;
+}
+
+.none-decor
+{
+    text-decoration: none;
+    color: inherit;
+}
+
+  /*=================*/
+ /* --=| INPUT |=-- */
+/*=================*/
+
+
+/* | Input: text green | - Бело-зеленое поле ввода текста */
+.txt-green
+{
+    width: 50%;
+    color: #000096;
+    text-align: center;
+    font-size: 30px;
+    letter-spacing: 3px;
+    border: 3px solid #04f100;
+    border-radius: 10px;
+    transition: 0.5s;
+
+    /*background: linear-gradient(135deg, #d5ffc2 0%, #c5ffe1 100%);*/
+}
+
+.txt-green:focus
+{
+    background: rgba(41, 126, 0, 0.3);
+    color: #dbfc13;
+    box-shadow: 0 0 5px 3px #11ffe1;
+}
+
+/* Убрать клацалки больше и менньше на 1 */
+.txt-green::-webkit-outer-spin-button,
+.txt-green::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.txt-green {
+    -moz-appearance: textfield;
+}
+.txt-green:hover,
+.txt-green:focus {
+    -moz-appearance: textfield;
+}
+
+.form-control
+{
+    width: 90%;
+    margin: 10px 0 10px 0;
+}
+
+  /*===================*/
+ /* ---=| FONTS |=--- */
+/*===================*/
+
+
+ /* | "H" - Heading text | - заголовочный текст */
+/*=============================================*/
+
+/* | type 1       | - первого типа */
+.H-text-t1
+{
+
+}
+
+/* | type 2       | - второго типа */
+.H-text-t2
+{
+    font-size: 40px;
+    line-height: 40px;
+    margin: 15px 0 0 30px;
+}
+
+/* | type 3       | - третьего типа */
+.H-text-t3
+{
+    font-size: 30px;
+    line-height: 30px;
+    margin: 15px 0 0 30px;
+}
+
+
+ /* | "P" - Plain text | - обычный, простой текст */
+/*===============================================*/
+
+/* | type 1     | - первого типа */
+.P-text-t1
+{
+
+}
+
+/* | type 2     | - второго типа */
+.P-text-t1
+{
+
+}
+
+/* | type 3     | - третьего типа */
+.P-text-t1
+{
+
+}
+
+.btnfos {
+    color: #fff;
+    cursor: pointer;
+    display: block;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 45px;
+    max-width: 160px;
+    position: relative;
+    text-transform: uppercase;
+    vertical-align: middle;
+
+    height: 50px;
+    padding: 5px 30px 5px 30px;
+    margin: 10px 30px 10px 30px;
+    border: 3px solid black;
+    border-radius: 8px;
+    background: linear-gradient(45deg, rgba(0, 255, 173, 0.29) 0%, rgba(0, 255, 40, 0.3) 100%);
+}
+
+.btnfos-4 {
+    border: 1px solid;
+    overflow: hidden;
+    position: relative;
+}
+
+.btnfos-4 span {
+    z-index: 20;
+}
+
+.btnfos-4:after {
+    background: #fff;
+    content: "";
+    height: 155px;
+    left: -75px;
+    opacity: .2;
+    position: absolute;
+    top: -50px;
+    width: 50px;
+    -webkit-transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
+    transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
+    -webkit-transform: rotate(35deg);
+    -ms-transform: rotate(35deg);
+    transform: rotate(35deg);
+    z-index: 10;
+}
+
+.btnfos-4:hover:after {
+    left: 120%;
+    -webkit-transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
+    transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
+}

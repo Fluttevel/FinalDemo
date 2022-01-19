@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Вход
+{% endblock title %}
+
+{% block cssfiles %}
+    <link rel="stylesheet" href="{% static 'css-unique/user-sign-in-up.css' %}">
+{% endblock cssfiles %}
+
+{% block content %}
+    <main class="center-box">
+        {# MODAL #}
+        <img src="{% static 'img/Logo-Utilities.png' %}" class="Img-text">
+
+        <form id="sign_in_form" method="post">
+            {% csrf_token %}
+            {{ form }}
+            <button form="sign_in_form" type="submit" class="button-flare btn-green">Войти</button>
+        </form>
+
+        {% url 'page_pre_sign_up' as url_pre_sign_up %}
+        <button class="button-flare btn-a-green">
+            <a href="{{ url_pre_sign_up }}" class="none-decor">Быстрая регистрация</a>
+        </button>
+        <button class="button-flare btn-a-green">
+            <a href="#" class="none-decor">Забыли пароль?</a>
+        </button>
+    </main>
+{% endblock content %}

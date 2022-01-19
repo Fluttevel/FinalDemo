@@ -1,0 +1,176 @@
+/*===============================================*/
+ /*=====|-|  utility-provider-styles.css  |-|=====*/
+  /*===============================================*/
+  /*=| Разметка в элементе main и дизайн доп.    |=*/
+  /*=| интерфейса для страниц передачи показаний |=*/
+
+
+.provider-full-info
+{
+    text-align: center;
+    height: 250px;
+    border: 3px solid lawngreen;
+    border-radius: 15px;
+    margin: 15px;
+}
+
+.pass-CR, .pass-CR-2
+{
+    margin: 20px;
+
+    /* => GRID */
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: 80px 60px 60px 60px 60px 60px 70px;
+    grid-template-areas:
+        "hder hder hder hder hist hist"
+        "date date .    .    .    .   "
+        "date date frst frst .    .   "
+        "date date frst frst scnd scnd"
+        ".    .    frst frst scnd scnd"
+        ".    .    .    .    scnd scnd"
+        ".    .    pass pass .    .   ";
+}
+
+.pass-CR-2
+{
+    grid-template-areas:
+        "hder hder hder hder hist hist"
+        ".    date date .    .    .   "
+        ".    date date .    .    .   "
+        ".    date date frst frst .   "
+        ".    .    .    frst frst .   "
+        ".    .    .    frst frst .   "
+        ".    .    pass pass .    .   ";
+}
+
+.header-text
+{
+    grid-area: hder;
+}
+
+.first_cr
+{
+    grid-area: frst;
+}
+
+.second_cr
+{
+    grid-area: scnd;
+}
+
+.date_cr
+{
+    grid-area: date;
+}
+
+.btn-show-history
+{
+    grid-area: hist;
+}
+
+.btn-pass-CR
+{
+    grid-area: pass;
+}
+
+.pass-CR div
+{
+    width: 90%;
+}
+
+.first_cr, .second_cr, .date_cr
+{
+    margin: 0 10px 0 10px;
+    padding-top: 20px;
+
+    text-align: center;
+    border: 3px solid lawngreen;
+    border-top-right-radius: 100% 20px;
+    border-bottom-left-radius: 100% 20px;
+    transition: 0.5s;
+    z-index: 1;
+}
+
+.first_cr:hover, .second_cr:hover, .date_cr:hover
+{
+    background: rgba(34, 127, 54, 0.5);
+    border-top-right-radius: 30px 100%;
+    border-bottom-left-radius: 30px 100%;
+}
+
+/* Calendar */
+/* Убрать клацалки больше и менньше на 1 */
+.calendar-date::-webkit-outer-spin-button,
+.calendar-date::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.calendar-date::-webkit-calendar-picker-indicator
+{
+    color: green;
+}
+
+.calendar-date
+{
+    appearance: none;
+    height: 40px;
+    -webkit-appearance: none;
+    color: #000096;
+    text-align: center;
+    font-family: "Helvetica", arial, sans-serif;
+    font-size: 25px;
+    background:#ecf0f1;
+    padding: 5px;
+    border: 3px solid #04f100;
+    border-radius: 15px;
+    transition: 0.5s;
+}
+
+.calendar-date:focus
+{
+    box-shadow: inset 0 0 10px black;
+    border: 3px solid black;
+    box-shadow: 0 0 5px 3px lawngreen;
+    color: lawngreen;
+    background: rgba(70, 70, 70, 0.3);
+}
+
+.txt-green
+{
+    margin-top: 30px;
+}
+
+.txt-green:focus
+{
+    margin-top: 20px;
+}
+
+.help-text
+{
+    margin-top: 10px;
+}
+
+.btn-green
+{
+    text-decoration: none;
+    font-size: 20px;
+    height: 65px;
+    /*padding: 5px 15px 5px 15px;*/
+    text-align: center;
+    color: black;
+}
+
+
+.another-bg
+{
+    background: linear-gradient(45deg, rgba(0, 184, 255, 0.5) 0%, rgba(0, 111, 255, 0.5) 100%);
+}
+
+.another-bg:hover
+{
+    background: linear-gradient(45deg, rgb(40, 72, 255) 0%, rgb(25, 150, 255) 100%);
+    box-shadow: 0 0 5px 1px blue;
+}

@@ -1,0 +1,255 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+body {
+    font-family: 'Roboto', sans-serif;
+    /*background: #3f2766;*/
+}
+
+/* Стиль input */
+.styled-input {
+    width: 100%;
+    position: relative;
+    margin-bottom: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+.styled-input__circle {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    overflow: hidden;
+    border-radius: 3px;
+}
+.styled-input__circle:after {
+    content: '';
+    position: absolute;
+    left: 16.5px;
+    top: 19px;
+    height: 14px;
+    width: 14px;
+    z-index: -2;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0);
+    -webkit-transition: opacity 1s ease, -webkit-transform 0.5s ease;
+    transition: opacity 1s ease, -webkit-transform 0.5s ease;
+    transition: transform 0.5s ease, opacity 1s ease;
+    transition: transform 0.5s ease, opacity 1s ease, -webkit-transform 0.5s ease;
+}
+.styled-input__input {
+    width: 100%;
+    -webkit-appearance: none;
+    font-size: 14px;
+    outline: none;
+    background: none;
+    padding: 18px 15px;
+    color: #ceafff;
+    border: none;
+    font-weight: 600;
+    letter-spacing: 0.035em;
+}
+.styled-input__placeholder {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    z-index: -1;
+    padding-left: 45px;
+    color: white;
+}
+.styled-input__placeholder-text {
+    -webkit-perspective: 500px;
+    /*perspective: 500px;*/
+    /*display: inline-block;*/
+}
+.styled-input__placeholder-text .letter {
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    -webkit-animation: letterAnimOut 0.25s ease forwards;
+    animation: letterAnimOut 0.25s ease forwards;
+    text-shadow: 0 0 5px;
+}
+.styled-input__placeholder-text .letter.active {
+    -webkit-animation: letterAnimIn 0.25s ease forwards;
+    animation: letterAnimIn 0.25s ease forwards;
+}
+.styled-input:hover {
+    border-color: rgba(255, 255, 255, 0.4);
+}
+.styled-input.filled {
+    border-color: rgba(255, 255, 255, 0.2);
+}
+.styled-input.filled .styled-input__circle:after {
+    -webkit-transform: scale(100);
+    transform: scale(100);
+    opacity: 0;
+}
+@-webkit-keyframes letterAnimIn {
+    0% {
+        -webkit-transform: translate(0, 0);
+        transform: translate(0, 0);
+    }
+    25% {
+        -webkit-transform: translate(0, 10px);
+        transform: translate(0, 10px);
+        color: red;
+    }
+    45% {
+        -webkit-transform: translate(0, 10px);
+        transform: translate(0, 10px);
+        opacity: 0;
+        color: red;
+    }
+    55% {
+        -webkit-transform: translate(0, 10px);
+        transform: translate(0, 10px);
+        opacity: 0;
+    }
+    56% {
+        -webkit-transform: translate(-30px, -27px);
+        transform: translate(-30px, -27px);
+        opacity: 0;
+        color: #00ff6b;
+    }
+    76% {
+        color: #00ff6b;
+        opacity: 1;
+        -webkit-transform: translate(-30px, -27px);
+        transform: translate(-30px, -27px);
+    }
+    100% {
+        -webkit-transform: translate(-30px, -27px);
+        transform: translate(-30px, -27px);
+        opacity: 1;
+    }
+}
+@keyframes letterAnimIn {
+    0% {
+        -webkit-transform: translate(0, 0);
+        transform: translate(0, 0);
+    }
+    25% {
+        -webkit-transform: translate(0, 10px);
+        transform: translate(0, 10px);
+        color: red;
+    }
+    45% {
+        -webkit-transform: translate(0, 10px);
+        transform: translate(0, 10px);
+        opacity: 0;
+        color: red;
+    }
+    55% {
+        -webkit-transform: translate(0, 10px);
+        transform: translate(0, 10px);
+        opacity: 0;
+    }
+    56% {
+        -webkit-transform: translate(-30px, -27px);
+        transform: translate(-30px, -27px);
+        opacity: 0;
+        color: #00ff6b;
+    }
+    76% {
+        color: #00ff6b;
+        opacity: 1;
+        -webkit-transform: translate(-30px, -27px);
+        transform: translate(-30px, -27px);
+    }
+    100% {
+        -webkit-transform: translate(-30px, -27px);
+        transform: translate(-30px, -27px);
+        opacity: 1;
+    }
+}
+@-webkit-keyframes letterAnimOut {
+    0% {
+        -webkit-transform: translate(-30px, -27px);
+        transform: translate(-30px, -27px);
+        opacity: 1;
+    }
+    25% {
+        -webkit-transform: translate(-30px, -40px);
+        transform: translate(-30px, -40px);
+        opacity: 0;
+    }
+    45% {
+        -webkit-transform: translate(0, 10px);
+        transform: translate(0, 10px);
+        opacity: 0;
+    }
+    55% {
+        -webkit-transform: translate(0, 10px);
+        transform: translate(0, 10px);
+        opacity: 0;
+        color: red;
+    }
+    56% {
+        -webkit-transform: translate(0, 10px);
+        transform: translate(0, 10px);
+        color: red;
+    }
+    100% {
+        -webkit-transform: translate(0, 0);
+        transform: translate(0, 0);
+    }
+}
+@keyframes letterAnimOut {
+    0% {
+        -webkit-transform: translate(-30px, -27px);
+        transform: translate(-30px, -27px);
+        opacity: 1;
+    }
+    25% {
+        -webkit-transform: translate(-30px, -40px);
+        transform: translate(-30px, -40px);
+        opacity: 0;
+    }
+    45% {
+        -webkit-transform: translate(0, 10px);
+        transform: translate(0, 10px);
+        opacity: 0;
+    }
+    55% {
+        -webkit-transform: translate(0, 10px);
+        transform: translate(0, 10px);
+        opacity: 0;
+        color: red;
+    }
+    56% {
+        -webkit-transform: translate(0, 10px);
+        transform: translate(0, 10px);
+        color: red;
+    }
+    100% {
+        -webkit-transform: translate(0, 0);
+        transform: translate(0, 0);
+    }
+}
+
+
+.styled-input__input::-webkit-outer-spin-button,
+.styled-input__input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.styled-input__input {
+    -moz-appearance: textfield;
+}
+.styled-input__input:hover,
+.styled-input__input:focus {
+    -moz-appearance: textfield;
+}

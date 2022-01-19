@@ -1,0 +1,31 @@
+{% load static %}
+
+<header class="element">
+    {% url 'user_home' as url_user_home %}
+    <a href="{{ url_user_home }}" class="Home-btn-logo-m">
+        <img src="{% static 'img/Logo-Img-Utilities.png' %}" class="Img-logo-m">
+    </a>
+    <a href="{{ url_user_home }}" class="Home-btn-text-m">
+        <img src="{% static 'img/Logo-Utilities.png' %}" class=" Img-text-m">
+    </a>
+
+    <p class="User-name-m">{{ user_data.name }}</p>
+
+    <!-- TEMP -->
+    {% if request.user.is_authenticated == False %}
+        {% url 'page_sign_in' as url_sign_in %}
+        <a href="{{ url_sign_in }}" class="btn-a-green sign-in">SignIn</a>
+        {% url 'page_sign_up' as url_sign_up %}
+        <a href="{{ url_sign_up }}" class="btn-a-green sign-up">SignUp</a>
+    {% endif %}
+
+    <a href="{% url 'page_pa_user' user_data.id_user %}" class="pers-area">
+        <img src="{% static 'img/Settings-icon.png' %}" class="Img-icon-m">
+    </a>
+    <!-- TEMP -->
+
+    {% url 'def_logout' as url_logout %}
+    <a href="{{ url_logout }}" class="Exit-btn-m">
+        <img src="{% static 'img/Exit.png' %}" class="Img-icon-m">
+    </a>
+</header>

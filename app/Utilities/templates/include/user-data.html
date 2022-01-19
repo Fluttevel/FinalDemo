@@ -1,0 +1,32 @@
+<div class="data-block personal-user-data">
+    <h3 class="H-text-t3 header-dblock-text">Личные данные</h3>
+
+    {% for field in form %}
+        {% if field.name == 'sur_name' or field.name == 'name' or field.name == 'patronymic' or field.name == 'gender' %}
+            <label for="{{ field.id_for_label }}" class="lab_{{ field.name }}">{{ field.label }}</label>
+            {{ field.as_widget }}
+        {% endif %}
+    {% endfor %}
+</div>
+
+<div class="data-block location-user">
+    <h3 class="H-text-t3 header-dblock-text">Место жительства</h3>
+
+    {% for field in form %}
+        {% if field.name == 'region' or field.name == 'city' or field.name == 'street' or field.name == 'house' or field.name == 'prefix_house' or field.name == 'flat' or field.name == '' %}
+            <label for="{{ field.id_for_label }}" class="lab_{{ field.name }}">{{ field.label }}</label>
+            {{ field.as_widget }}
+        {% endif %}
+    {% endfor %}
+</div>
+
+<div class="data-block contact-user">
+    <h3 class="H-text-t3 header-dblock-text">Контактная информация</h3>
+
+    {% for field in form %}
+        {% if field.name == 'tel_number' or field.name == 'tel_number_extra' or field.name == 'email' %}
+            <label for="{{ field.id_for_label }}" class="lab_{{ field.name }}">{{ field.label }}</label>
+            {{ field.as_widget }}
+        {% endif %}
+    {% endfor %}
+</div>
